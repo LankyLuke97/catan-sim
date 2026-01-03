@@ -12,4 +12,8 @@ class GameManager():
 
     def roll(self):
         d1, d2 = randrange(1, 6), randrange(1, 6)
-        print(d1, d2, self.board.probabilities[d1+d2])
+        for hex in self.board.roll_to_hex[d1+d2]:
+            for settlement in hex.corners:
+                if not settlement: continue
+                settlement.add_resource(hex.resource_type)
+

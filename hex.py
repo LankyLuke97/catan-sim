@@ -1,12 +1,10 @@
-from dataclasses import dataclass
-
-@dataclass
 class Hex():
-    corners: list[int]
-    edges: list[int]
-    resource_type: str
-    robber: bool = False
-    
+    def __init__(self, resource_type: str):
+        self.corners: list[int] = [0]*6
+        self.edges: list[int] = [0]*6
+        self.resource_type: str = resource_type
+        self.robber: bool = False
+
     def __str__(self):
         return f"Hex: {self.resource_type}"
 
